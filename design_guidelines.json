@@ -1,0 +1,81 @@
+{
+  "project_name": "SPHEN DIGITAL",
+  "theme": "dark",
+  "brand_colors": {
+    "background": "#050505",
+    "foreground": "#FFFFFF",
+    "primary": "#6D3BFF",
+    "accent": "#FF8A3D",
+    "surface": "#121214",
+    "glass_bg": "rgba(255, 255, 255, 0.03)",
+    "glass_border": "rgba(255, 255, 255, 0.08)"
+  },
+  "typography": {
+    "headings": "Outfit, sans-serif",
+    "body": "Plus Jakarta Sans, sans-serif",
+    "rules": "DO NOT use Inter or Roboto for headings. Headings must use tracking-tight. Add Google Fonts imports for Outfit and Plus Jakarta Sans to index.css."
+  },
+  "visual_enhancers": {
+    "glassmorphism": "Use backdrop-blur-xl with bg-white/5 and border border-white/10. For dark mode, it creates a premium SaaS look.",
+    "neon_effects": "Use drop-shadows with #6D3BFF and #FF8A3D for glowing elements. e.g., drop-shadow-[0_0_15px_rgba(109,59,255,0.5)].",
+    "gradients": "Subtle radial gradients in the background to avoid flat black.",
+    "cursor": "Implement a custom glowing purple orb cursor using framer-motion that follows the mouse.",
+    "buttons": "Pill-shaped or slightly rounded, glowing borders, smooth hover transitions."
+  },
+  "layouts": {
+    "spacing": "Generous spacing. Use py-24 or py-32 for section padding. gap-8 to gap-12 for grids.",
+    "grids": "Bento Grid Protocol. Use asymmetric grid layouts for Services and About sections."
+  },
+  "motion": {
+    "scrolling": "Implement @studio-freight/lenis for smooth scrolling in the main layout.",
+    "animations": "Framer Motion for all scroll reveals (whileInView). Kinetic text reveal for the Hero headline.",
+    "parallax": "Use framer-motion useScroll and useTransform for subtle parallax on hero images and floating background elements."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1654198340681-a2e0fc449f1b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBwdXJwbGUlMjAzZHxlbnwwfHx8fDE3ODU5MjQ2OTZ8MA&ixlib=rb-4.1.0&q=85",
+        "category": "hero_background",
+        "description": "Abstract dark purple 3d swirl for hero background or section breaks"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc4NTkyNDY5Nnww&ixlib=rb-4.1.0&q=85",
+        "category": "services",
+        "description": "Digital marketing dashboard on laptop, use in services or portfolio"
+      },
+      {
+        "url": "https://images.pexels.com/photos/577195/pexels-photo-577195.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "portfolio",
+        "description": "Analytics charts, use for before/after slider or stats section background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1709196138037-df0a4db8c93b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxwZW5ndWluJTIwM2QlMjBjdXRlfGVufDB8fHx8MTc4NTkyNDY5N3ww&ixlib=rb-4.1.0&q=85",
+        "category": "mascot",
+        "description": "Cute 3D penguin to be used as fallback for SPHEN mascot if SVG is not preferred."
+      }
+    ]
+  },
+  "components_to_build": [
+    "PremiumLoader: Full screen black overlay, brand name reveal, slides up on mount.",
+    "CustomCursor: Fixed purple glowing div that tracks mouse position.",
+    "Navbar: Sticky glassmorphism header, MUST have solid/blur background (no pure transparent).",
+    "Hero: H1 'Grow Faster. Rank Higher. Sell More.' with kinetic line-by-line reveal. Floating dashboard images.",
+    "About: 'Why SPHEN DIGITAL?' Numbered chapters.",
+    "Services: 12 interactive cards with hover lift/tilt.",
+    "Process: 6-step animated timeline.",
+    "Pricing: 3 glassmorphism cards (₹ currency), middle 'Growth plan' highlighted with purple neon border.",
+    "Portfolio: Masonry gallery + before/after image slider component.",
+    "Stats: Animated number counters (250+ projects, 150+ clients, 10M+ reach, 98% satisfaction).",
+    "Testimonials: Animated cards.",
+    "Contact: Form + contact details + floating lead capture popup.",
+    "FloatingActionButtons: WhatsApp, Instagram, Messenger, Call, Back to top on the side.",
+    "ChatbotMascot: Scripted AI chatbot popup. Implement a custom SVG penguin or use the provided mascot image. If building custom SVG, use framer-motion on the 'pupils' to track cursor coordinates."
+  ],
+  "accessibility": {
+    "testing": "All interactive elements (buttons, inputs, sliders, chatbot) MUST have data-testid attributes.",
+    "contrast": "Ensure text contrast against dark backgrounds is sufficient. Never use fully transparent backgrounds behind text.",
+    "motion": "Respect prefers-reduced-motion for heavy animations."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": "1. MUST build an Awwwards-level premium site matching Apple/Stripe/Linear aesthetics. 2. NEVER center everything blindly; use asymmetric grids and purposeful typography. 3. Build complex interactive components (Custom Cursor, Lenis Smooth Scroll, Hover Card Tilts). 4. Empty components or generic slop will be rejected. Detail every section. 5. MUST implement data-testid for everything. 6. Remove default App.css styles that center the app. 7. Mascot MUST react to the user, either visually or through interaction.",
+  "instructions_to_main_agent": "1. Install 'framer-motion', '@studio-freight/lenis', 'lucide-react', 'react-fast-marquee', 'clsx', 'tailwind-merge'. 2. Setup standard Tailwind variables for dark mode based on the color palette above. 3. Build the Mascot SVG manually if possible, using a simple penguin shape where the eyes are `<circle>` elements animated via framer-motion `useFollowPointer` logic. 4. Implement a custom Before/After slider using a draggable separator. 5. Make sure the 'Growth' pricing card physically stands out using a #6D3BFF border and drop shadow. 6. Use the provided Unsplash/Pexels images to fill visual gaps."
+}
